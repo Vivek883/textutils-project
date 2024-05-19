@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert.js';
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 
 
@@ -52,12 +52,13 @@ function App() {
     <Navbar title="Home" about="About Us" switchText={switchText} mode={mode} togglemode={togglemode}/>
     <Alert Alert = {alert}/>
     <div className="container my-3">
-    <TextForm showAlert={showAlert} heading="Vivek Conversion Engine" mode={mode} />
-    {/* <Routes>                     
+    {/* <TextForm showAlert={showAlert} heading="Vivek Conversion Engine" mode={mode} />
+    <About heading="About Us" mode={mode}/>  */}
+    <Routes>                     
             <Route exact path="TextForm" element = { <TextForm showAlert={showAlert} heading="Vivek Conversion Engine" mode={mode} /> }  /> 
-            <Route exact path="About" element = { <About heading="About Us" mode={mode}/> }  />
-            <Route exact path="Home" element = { <Home heading="This is Our Home" /> }  />
-    </Routes>  */}
+            <Route exact path="About" element = { <About heading="Abuot Us" mode={mode}/> }  />
+            {/* <Route exact path="Home" element = { <Home heading="This is Our Home" /> }  /> */}
+    </Routes> 
     </div> 
       
     </>

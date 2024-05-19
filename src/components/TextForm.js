@@ -45,7 +45,6 @@ export default function TextForm(props) {
     // setText("Hii");  wrong way
     //setText("new text");
 
-    const WordCount = Text.split(" ").length - 1;
   return (
   <>
   <div className="container" style = {{color : props.mode==='dark'?'white':'black'}}>
@@ -62,7 +61,7 @@ export default function TextForm(props) {
   </div>
   <div className="container my-3" style = {{ color: props.mode==='dark'?'white':'black'}}>
     <h1>Text Summary</h1>
-    <p>{WordCount} words, {Text.length} characaters</p>
+    <p>{Text.split(" ").filter((element)=>{return element.length!==0}).length} words, {Text.length} characaters</p>
     <p>{ 0.008 * Text.split(" ").length} minutes taken to read.</p>
     <h2>Preview</h2>
     <p>{Text.length>0?Text:'Enter Something In The TextBox above to preview it here!'}</p>
