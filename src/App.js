@@ -40,7 +40,7 @@ function App() {
     else{
       setmode("light");
       setswitchText("Dark Mode");
-      document.body.style.backgroundColor = '#cc33ff';
+      document.body.style.backgroundColor = '#93edeb';
       showAlert(" Light Mode has been enabled" , "success ");
       document.title="TextUtils - Ambient Mode";
       
@@ -55,8 +55,8 @@ function App() {
     {/* <TextForm showAlert={showAlert} heading="Vivek Conversion Engine" mode={mode} />
     <About heading="About Us" mode={mode}/>  */}
     <Routes>                     
-            <Route exact path="TextForm" element = { <TextForm showAlert={showAlert} heading="Vivek Conversion Engine" mode={mode} /> }  /> 
-            <Route exact path="About" element = { <About heading="Abuot Us" mode={mode}/> }  />
+            <Route exact path="TextForm" element = { <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter | Character Counter" mode={mode} /> }  /> 
+            <Route exact path="About" element = { <About heading="About Us" mode={mode}/> }  />
             {/* <Route exact path="Home" element = { <Home heading="This is Our Home" /> }  /> */}
     </Routes> 
     </div> 

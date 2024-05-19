@@ -9,7 +9,7 @@ export default function Navbar(props) {
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <h1 className="navbar-brand mb-2 h1">
-           <img src="https://user-images.githubusercontent.com/94471189/193782622-db0071f8-122e-4909-83a8-fe5da257febc.png" width="30" height="30" class="d-inline-block align-top" alt="can't load" />
+           <img src="https://user-images.githubusercontent.com/94471189/193782622-db0071f8-122e-4909-83a8-fe5da257febc.png" width="30" height="30" className="d-inline-block align-top" alt="can't load" />
             TextUtils
         </h1>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
