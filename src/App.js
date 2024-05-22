@@ -9,26 +9,40 @@ import { Routes, Route } from "react-router-dom";
 
 
 function App() {
-  const [mode,setmode] = useState('light');
+  const [mode, setmode] = useState('light');
   const [switchText, setswitchText] = useState('Enable Dark Mode');
-  const [alert , setAlert] = useState(null);
+  const [alert, setAlert] = useState(null);
 
-  const showAlert= (message , type)=>{
+  const showAlert = (message, type) => {
     setAlert({
-      message : message,
+      message: message,
       type: type
-    }) 
+    })
     setTimeout(() => {
       setAlert(null);
     }, 1500);
   }
-  const togglemode = ()=>{
-    if(mode==='light'){
+
+  const removeBodyClasses = ()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-primary')
+  
+  }
+
+  const togglemode = (cls) => {
+    removeBodyClasses();
+    console.log(cls)
+    document.body.classList.add('bg-'+cls)
+    if (mode === 'light') {
       setmode("dark");
       setswitchText("Ambient Mode");
       document.body.style.backgroundColor = '#042743';
-      showAlert(" Dark Mode has been enabled" , "success ");
-      document.title="TextUtils - Dark Mode";
+      showAlert(" Dark Mode has been enabled", "success ");
+      document.title = "TextUtils - Dark Mode";
       // setInterval(() =>{
       //   document.title = "TextUtils is amazing!"
       // }, 1000);
@@ -36,33 +50,29 @@ function App() {
       //   document.title = "Install TextUtils!"
       // }, 1500);
     }
-      
-    else{
+
+    else {
       setmode("light");
       setswitchText("Dark Mode");
       document.body.style.backgroundColor = '#93edeb';
-      showAlert(" Light Mode has been enabled" , "success ");
-      document.title="TextUtils - Ambient Mode";
-      
+      showAlert(" Light Mode has been enabled", "success ");
+      document.title = "TextUtils - Ambient Mode";
+
     }
-      
+
   }
   return (
     <>
-    <Navbar title="Home" about="About Us" switchText={switchText} mode={mode} togglemode={togglemode}/>
-    <Alert Alert = {alert}/>
-    <div className="container my-3">
-    {/* <TextForm showAlert={showAlert} heading="Vivek Conversion Engine" mode={mode} />
-    <About heading="About Us" mode={mode}/>  */}
-    <Routes>                     
-            <Route exact path="TextForm" element = { <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter | Character Counter" mode={mode} /> }  /> 
-            <Route exact path="About" element = { <About heading="About Us" mode={mode}/> }  />
-            {/* <Route exact path="Home" element = { <Home heading="This is Our Home" /> }  /> */}
-    </Routes> 
-    </div> 
-      
+      <Navbar title="Home" about="About Us" switchText={switchText} mode={mode} togglemode={togglemode} />
+      <Alert Alert={alert} />
+      <div className="container my-3">
+        <Routes>
+          <Route exact path="TextForm" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter | Character Counter" mode={mode} />} />
+          <Route exact path="About" element={<About heading="About Us" mode={mode} />} />
+        </Routes>
+      </div>
+
     </>
   );
 }
-
 export default App;
